@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-md-8 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">My Profile</h4>
+        <!-- <p class="card-description">Basic form layout</p> -->
+        <form
+          [formGroup]="UserProfileForm"
+          class="forms-sample"
+          (ngSubmit)="UpdateProfile()"
+        >
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label>Firstname</label>
+                <input
+                  type="text"
+                  class="form-control p_input"
+                  formControlName="FirstName"
+                  placeholder="firstname"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label>Lastname</label>
+                <input
+                  type="text"
+                  class="form-control p_input"
+                  formControlName="LastName"
+                  placeholder="lastname"
+                  [disabled]="true"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Mobile</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="Mobile"
+                  [disabled]="true"
+                  placeholder="mobile"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Alternate Mobile</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="AlternateMobile"
+                  placeholder="alternate mobile"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="exampleInputUsername1">Date of birth</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="DOB"
+                  [disabled]="true"
+                  placeholder="date of birth"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Gender</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="Gender1"
+                  placeholder="gender"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputConfirmPassword1"
+                >Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputConfirmPassword1"
+                placeholder="Password"
+              />
+            </div> -->
+          <!-- <div class="form-check form-check-flat form-check-primary">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" /> Remember
+                me <i class="input-helper"></i
+              ></label>
+            </div> -->
+          <button type="submit" class="btn btn-primary mr-2">Update</button>
+          <button class="btn btn-dark">Cancel</button>
+          <p-toast key="k1" position="top-center"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

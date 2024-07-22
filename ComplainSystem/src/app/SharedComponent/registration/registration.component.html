@@ -1,33 +1,42 @@
 <div class="container-scroller">
-<div class="container-fluid page-body-wrapper full-page-wrapper">
-<div class="row w-100 m-0">
-      <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="row w-100 m-0">
+      <div
+        class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg"
+      >
         <div class="card col-lg-4 mx-auto">
           <div class="card-body px-5 py-5">
             <h3 class="card-title text-left mb-3">Register</h3>
-            <form [formGroup]="UserregistrationForm" (ngSubmit)="CreateUser()">
-              <div class="form-group mb-2 mr-sm-2">
-                <label>Firstname</label>
-                <input
-                  type="text"
-                  class="form-control p_input"
-                  formControlName="FirstName"
-                />
-              </div>
-              <div class="form-group mb-2 mr-sm-2">
-                <label>Lastname</label>
-                <input
-                  type="text"
-                  class="form-control p_input"
-                  formControlName="Lastname"
-                />
-              </div>
+            <form [formGroup]="UserRegistrationForm" (ngSubmit)="CreateUser()">
+              <!-- <div class="row">
+                <div class="col-6">
+                  <div class="form-group mb-2 mr-sm-2">
+                    <label>Firstname</label>
+                    <input
+                      type="text"
+                      class="form-control p_input"
+                      formControlName="FirstName"
+                    />
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group mb-2 mr-sm-2">
+                    <label>Lastname</label>
+                    <input
+                      type="text"
+                      class="form-control p_input"
+                      formControlName="Lastname"
+                    />
+                  </div>
+                </div>
+              </div> -->
+
               <div class="form-group">
-                <label>Email</label>
+                <label>Username</label>
                 <input
                   type="email"
                   class="form-control p_input"
-                  formControlName="Email"
+                  formControlName="Username"
                 />
               </div>
               <div class="form-group">
@@ -38,6 +47,15 @@
                   formControlName="Password"
                 />
               </div>
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input
+                  type="password"
+                  class="form-control p_input"
+                  formControlName="ConfirmPassword"
+                />
+              </div>
+              <div *ngIf="this.UserRegistrationForm.hasError('notMatched')">Passworrd must match</div>
               <div
                 class="form-group d-flex align-items-center justify-content-between"
               >
@@ -54,7 +72,7 @@
                   type="submit"
                   class="btn btn-primary btn-block enter-btn"
                 >
-                  Login
+                  Register
                 </button>
               </div>
               <div class="d-flex">
@@ -62,11 +80,11 @@
                   <i class="mdi mdi-facebook"></i> Facebook
                 </button>
                 <button class="btn btn-google col">
-                  <i class="mdi mdi-google-plus"></i> Google plus
+                  <i class="mdi mdi-google"></i> Google
                 </button>
               </div>
               <p class="sign-up text-center">
-                Already have an Account?<a routerLink="" href="#"> Sign In</a>
+                Already have an Account?<a routerLink="" href="#"> Login</a>
               </p>
               <p class="terms">
                 By creating an account you are accepting our<a href="#">
@@ -79,5 +97,5 @@
       </div>
       <!-- content-wrapper ends -->
     </div>
-</div>
+  </div>
 </div>

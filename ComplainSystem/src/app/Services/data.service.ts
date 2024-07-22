@@ -34,11 +34,11 @@ export class DataService {
   //This method is used to create object into system.
   Create(endPoint: string, data: any): Observable<Object> {
     return this._http.post(this.env + endPoint, data).pipe(
-      map((NewUserRegistration: any) => {
-        if (NewUserRegistration) {
+      map((response: any) => {
+        if (response) {
           console.log('Yes');
         }
-        return NewUserRegistration;
+        return response;
       })
     );
   }
@@ -46,11 +46,11 @@ export class DataService {
   //This method is used to update the data
   Update(endPoint: string, data: any): Observable<Object> {
     return this._http.put(this.env + endPoint, data).pipe(
-      map((NewUserRegistration: any) => {
-        if (NewUserRegistration) {
+      map((response: any) => {
+        if (response) {
           console.log('Yes');
         }
-        return NewUserRegistration;
+        return response;
       })
     );
   }

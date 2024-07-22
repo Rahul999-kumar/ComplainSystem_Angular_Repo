@@ -22,9 +22,4 @@ export class UserRegistartionService {
     return this._data.Create('User/NewUser', UserRegistration);
   }
 
-  Login = (userData: any) => {
-    return this._data.Create('UserLogin/Authenicate',userData);
-  }
-
-
 }

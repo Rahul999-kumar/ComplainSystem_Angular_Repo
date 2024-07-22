@@ -13,6 +13,12 @@ import { AdminDashboardComponent } from './Component/admin-dashboard/admin-dashb
 import { UserDashboardComponent } from './Component/user-dashboard/user-dashboard.component';
 import { RegistrationComponent } from './SharedComponent/registration/registration.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserProfileComponent } from './Component/user-profile/user-profile.component';
+import { AdminProfileComponent } from './Component/admin-profile/admin-profile.component';
+import { TokenInterceptor } from './Core/Interceptor/token.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { MessageService, PrimeNGConfig } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -23,14 +29,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserProfileComponent,
+    AdminProfileComponent
+
 
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,AdminModule,UserModule,HttpClientModule,ReactiveFormsModule
+    BrowserModule,BrowserAnimationsModule,
+    AppRoutingModule, AdminModule, UserModule, HttpClientModule, ReactiveFormsModule, ToastModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+  }, { provide: MessageService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

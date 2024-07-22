@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserRegistartionService } from 'src/app/Services/user-registartion.service';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,7 @@ import { UserRegistartionService } from 'src/app/Services/user-registartion.serv
 })
 export class LoginComponent {
 
-  constructor(private _fb: FormBuilder, private _router: Router, private _userReg: UserRegistartionService) {
+  constructor(private _fb: FormBuilder, private _router: Router, private _authService: AuthService) {
 
   }
 
@@ -21,9 +21,9 @@ export class LoginComponent {
   })
 
   Login() {
-    debugger;
-    console.log(this.UserLoginForm);
-    this._userReg.Login(this.UserLoginForm.value).subscribe(x => {
+    this._authService.Login(this.UserLoginForm.value).subscribe(res => {
+      console.log(res,'Res');
+      this._authService.storeToken(JSON.stringify(res));
       this._router.navigate(["/user-dashboard"]);
     })
   }
